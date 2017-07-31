@@ -1,0 +1,121 @@
+* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		.wrapper {
+			margin: 0 auto;
+		}
+		
+		a {
+			text-decoration: none;
+		}
+		
+		body,
+		html {
+			width: 100%;
+		}
+		.widget {
+			border: 1px solid #c9c9c9;
+			border-radius: 3px;
+			margin-top: 10px;
+			margin-bottom: 20px;
+			background: #fafafa url(../img/cream.png) repeat;
+		}
+		
+		.widget .widget-head {
+			background-color: #f8f8f8;
+			background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f2f2f2));
+			background: -webkit-linear-gradient(top, #f8f8f8, #f2f2f2);
+			background: -moz-linear-gradient(top, #f8f8f8, #f2f2f2);
+			background: -ms-linear-gradient(top, #f8f8f8, #f2f2f2);
+			background: -o-linear-gradient(top, #f8f8f8, #f2f2f2);
+			background: linear-gradient(top, #f8f8f8, #f2f2f2);
+			border-top-right-radius: 3px;
+			border-top-left-radius: 3px;
+			text-shadow: 0px 1px #fff;
+			border-bottom: 1px solid #ccc;
+			border-top: 1px solid #fff;
+			color: #666;
+			font-size: 13px;
+			font-weight: bold;
+			padding: 8px 15px;
+		}
+		
+		.widget .widget-head h5 {
+			height: 50px;
+			line-height: 50px;
+			color: #666;
+			font-size: 15px;
+		}
+		
+		table {
+			background-color: transparent;
+			border-spacing: 0;
+			border-collapse: collapse;
+			box-sizing: border-box;
+		}
+		
+		.results th {
+			background: #eee !important;
+		}
+		
+		.coRED {
+			color: red !important;
+		}
+		
+		.w25 {
+			width: 25%;
+		}
+		
+		th,
+		td {
+			text-align: center;
+		}
+		
+		.widget .table-bordered {
+			border-radius: 0px;
+			border: 0px;
+		}
+		
+		.widget .table {
+			margin: 0px;
+			width: 100%;
+		}
+		
+		.table-striped > tbody > tr:nth-of-type(odd) {
+			background-color: #f9f9f9;
+		}
+		
+		.widget .table-bordered td:first-child,
+		.widget .table-bordered th:first-child {
+			border-left: 0px;
+		}
+		
+		.widget .table-bordered td {
+			border-top: 0px !important;
+			border-bottom: 1px solid #ddd !important;
+			border-radius: 0px !important;
+		}
+		
+		.table-bordered > thead > tr > th,
+		.table-bordered > tbody > tr > th,
+		.table-bordered > tfoot > tr > th,
+		.table-bordered > thead > tr > td,
+		.table-bordered > tbody > tr > td,
+		.table-bordered > tfoot > tr > td {
+			border: 1px solid #ddd;
+		}
+		
+		.table > thead > tr > th,
+		.table > tbody > tr > th,
+		.table > tfoot > tr > th,
+		.table > thead > tr > td,
+		.table > tbody > tr > td,
+		.table > tfoot > tr > td {
+			padding: 8px;
+			line-height: 1.42857143;
+			vertical-align: top;
+			border-top: 1px solid #ddd;
+			font-size: 13px;
+		}

@@ -1,0 +1,29 @@
+package com.crdloo.audit.framework.router.utils;
+
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.codehaus.jackson.JsonParser;
+import org.codehaus.jackson.JsonProcessingException;
+import org.codehaus.jackson.map.DeserializationContext;
+import org.codehaus.jackson.map.JsonDeserializer;
+
+public class CustomDateDeserializer extends JsonDeserializer<Date> {
+
+    @Override
+    public Date deserialize(JsonParser parser, DeserializationContext context)
+        throws IOException, JsonProcessingException {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        String fieldData= parser.getText();
+        Date date = null;
+        try {
+            date = formatter.parse(fieldData);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
+    }
+    
+}

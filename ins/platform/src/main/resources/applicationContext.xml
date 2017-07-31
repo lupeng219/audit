@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+  http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+  http://www.springframework.org/schema/context 
+  http://www.springframework.org/schema/context/spring-context-3.0.xsd
+  http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+
+	<bean id="springBeanUtil"
+		class="com.crdloo.audit.framework.router.utils.SpringContextUtil" />
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>classpath:config.properties</value>
+		</property>
+	</bean>
+	
+	<import resource="classpath:applicationContext-jedis.xml" />
+
+	<bean id="exceptionHandler" class="com.crdloo.audit.framework.resolver.ExceptionHandler" />
+	<bean id="preprocessor"
+		class="com.crdloo.audit.framework.resolver.PlatformPreprocessor">
+	</bean>
+	<bean id="postprocessor" class="com.crdloo.audit.framework.resolver.BasePostprocessor">
+	</bean>
+
+	<bean id="jsonFilter" class="com.crdloo.audit.framework.common.filter.JsonFilter">
+		<property name="exceptionHandler" ref="exceptionHandler" />
+		<property name="preprocessor" ref="preprocessor" />
+		<property name="postprocessor" ref="postprocessor" />
+	</bean>
+	
+	<bean id="bfdHaoProcess" class="com.crdloo.audit.platform.common.hao.bfd.BfdHaoProcess">
+		<property name="userName" value="${bdf.username}" />
+		<property name="pwd" value="${bdf.pwd}" />
+		<property name="apiCode" value="${bdf.apicode}" />
+		<property name="loginApiName" value="${bdf.apiname.login}" />
+		<property name="hxApiName" value="${bdf.apiname.hx}" />
+		<property name="hnApiName" value="${bdf.apiname.hn}" />
+	</bean>
+
+	<import resource="classpath:dataSource.xml" />
+
+	<context:component-scan base-package="com.crdloo.audit.platform.**.service" />
+	<context:component-scan base-package="com.crdloo.audit.platform.**.dao" />
+	<context:component-scan base-package="com.crdloo.audit.platform.**.hao" />
+	<context:component-scan base-package="com.crdloo.audit.platform.**.convertor" />
+
+</beans>
